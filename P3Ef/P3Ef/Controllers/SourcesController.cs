@@ -86,7 +86,7 @@ namespace P3Ef.Controllers
             {
                 db.Entry(source).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Projects");
             }
             return View(source);
         }
@@ -114,7 +114,7 @@ namespace P3Ef.Controllers
             Source source = db.Sources.Find(id);
             db.Sources.Remove(source);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","Projects");
         }
 
         protected override void Dispose(bool disposing)
