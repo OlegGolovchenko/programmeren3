@@ -10,6 +10,7 @@ using Models;
 
 namespace P3Ef.Controllers
 {
+    [Authorize]
     public class SourcesController : Controller
     {
         private ModelsDA db = new ModelsDA();
@@ -82,6 +83,7 @@ namespace P3Ef.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,FileName,Package,Content")] Source source)
         {
+            source.PName = TempData["pname"].ToString();
             if (ModelState.IsValid)
             {
                 db.Entry(source).State = EntityState.Modified;

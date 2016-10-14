@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity;
 
 namespace P3Ef.Controllers
 {
+    [Authorize]
     public class ProjectsController : Controller
     {
         private ModelsDA db = new ModelsDA();
