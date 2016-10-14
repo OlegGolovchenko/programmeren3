@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{94B71F98-A408-4D33-8AD3-EB9F1DAF510B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P3Ef", "P3Ef\P3Ef.csproj", "{5F7A91EF-0B5B-4236-A045-5AD666336A1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P3Ef.Tests", "P3Ef.Tests\P3Ef.Tests.csproj", "{0BC8019B-2E66-4EEE-A2D0-165541168D2F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{94B71F98-A408-4D33-8AD3-EB9F1DAF510B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94B71F98-A408-4D33-8AD3-EB9F1DAF510B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94B71F98-A408-4D33-8AD3-EB9F1DAF510B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94B71F98-A408-4D33-8AD3-EB9F1DAF510B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F7A91EF-0B5B-4236-A045-5AD666336A1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F7A91EF-0B5B-4236-A045-5AD666336A1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F7A91EF-0B5B-4236-A045-5AD666336A1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F7A91EF-0B5B-4236-A045-5AD666336A1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BC8019B-2E66-4EEE-A2D0-165541168D2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BC8019B-2E66-4EEE-A2D0-165541168D2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BC8019B-2E66-4EEE-A2D0-165541168D2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BC8019B-2E66-4EEE-A2D0-165541168D2F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
