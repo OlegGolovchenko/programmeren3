@@ -51,21 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201610070947543_Project.cs" />
-    <Compile Include="Migrations\201610070947543_Project.Designer.cs">
-      <DependentUpon>201610070947543_Project.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610070948542_Source.cs" />
-    <Compile Include="Migrations\201610070948542_Source.Designer.cs">
-      <DependentUpon>201610070948542_Source.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610071008110_Project1.cs" />
-    <Compile Include="Migrations\201610071008110_Project1.Designer.cs">
-      <DependentUpon>201610071008110_Project1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610101434585_srcChanged.cs" />
-    <Compile Include="Migrations\201610101434585_srcChanged.Designer.cs">
-      <DependentUpon>201610101434585_srcChanged.cs</DependentUpon>
+    <Compile Include="Language.cs" />
+    <Compile Include="Migrations\201610171350204_Initial.cs" />
+    <Compile Include="Migrations\201610171350204_Initial.Designer.cs">
+      <DependentUpon>201610171350204_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelsDA.cs" />
@@ -78,17 +67,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610070947543_Project.resx">
-      <DependentUpon>201610070947543_Project.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610070948542_Source.resx">
-      <DependentUpon>201610070948542_Source.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610071008110_Project1.resx">
-      <DependentUpon>201610071008110_Project1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610101434585_srcChanged.resx">
-      <DependentUpon>201610101434585_srcChanged.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610171350204_Initial.resx">
+      <DependentUpon>201610171350204_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

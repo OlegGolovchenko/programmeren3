@@ -3,7 +3,7 @@ namespace Models.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Project : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
@@ -13,6 +13,18 @@ namespace Models.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         UId = c.String(),
+                        Name = c.String(),
+                        Lang_Id = c.Int(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Languages", t => t.Lang_Id)
+                .Index(t => t.Lang_Id);
+            
+            CreateTable(
+                "dbo.Languages",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
                         Name = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
@@ -24,20 +36,19 @@ namespace Models.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         FileName = c.String(),
                         Package = c.String(),
-                        Content = c.Binary(),
-                        Project_Id = c.Int(),
+                        Content = c.String(),
+                        PName = c.String(),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Projects", t => t.Project_Id)
-                .Index(t => t.Project_Id);
+                .PrimaryKey(t => t.Id);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Sources", "Project_Id", "dbo.Projects");
-            DropIndex("dbo.Sources", new[] { "Project_Id" });
+            DropForeignKey("dbo.Projects", "Lang_Id", "dbo.Languages");
+            DropIndex("dbo.Projects", new[] { "Lang_Id" });
             DropTable("dbo.Sources");
+            DropTable("dbo.Languages");
             DropTable("dbo.Projects");
         }
     }
