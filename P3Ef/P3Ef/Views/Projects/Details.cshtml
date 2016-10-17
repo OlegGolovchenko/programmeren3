@@ -19,6 +19,9 @@
             @Html.DisplayFor(model => model.Name)
         </dd>
         <dd>
+            @Html.DisplayFor(model => model.Lang)
+        </dd>
+        <dd>
             @Html.Action("Index", "Sources",new { pname=Model.Name})
         </dd>
     </dl>
