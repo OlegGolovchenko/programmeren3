@@ -30,6 +30,7 @@ namespace P3Ef.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Project project = db.Projects.Find(id);
+            project.Lang = db.Languages.Find(project.LangId);
             if (project == null)
             {
                 return HttpNotFound();
@@ -40,7 +41,7 @@ namespace P3Ef.Controllers
         // GET: Projects/Create
         public ActionResult Create()
         {
-            ViewBag.langs = new SelectList(db.Languages, "Id", "Name",1);
+            ViewBag.langs = new SelectList(db.Languages, "Id", "Name");
 
             return View();
         }
@@ -50,7 +51,7 @@ namespace P3Ef.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Lang")] Project project)
+        public ActionResult Create([Bind(Include = "Id,Name,LangId")] Project project)
         {
             project.Lang = db.Languages.Find(project.LangId);
             project.UId = User.Identity.GetUserId();
@@ -71,6 +72,7 @@ namespace P3Ef.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            ViewBag.langs = new SelectList(db.Languages, "Id", "Name");
             Project project = db.Projects.Find(id);
             if (project == null)
             {
@@ -84,8 +86,9 @@ namespace P3Ef.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,UId,Name")] Project project)
+        public ActionResult Edit([Bind(Include = "Id,UId,Name,LangId")] Project project)
         {
+            project.Lang = db.Languages.Find(project.LangId);
             if (ModelState.IsValid)
             {
                 db.Entry(project).State = EntityState.Modified;
@@ -116,6 +119,12 @@ namespace P3Ef.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Project project = db.Projects.Find(id);
+            List<Source> srcs = db.ListSources(project.Name);
+            foreach(Source src in srcs)
+            {
+                db.Sources.Remove(src);
+            }
+            srcs.Clear();
             db.Projects.Remove(project);
             db.SaveChanges();
             return RedirectToAction("Index");

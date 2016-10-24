@@ -18,9 +18,15 @@
         <dd>
             @Html.DisplayFor(model => model.Name)
         </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lang.Name)
+        </dt>
+
         <dd>
-            @Html.DisplayFor(model => model.Lang)
+            @Html.DisplayFor(model => model.Lang.Name)
         </dd>
+
         <dd>
             @Html.Action("Index", "Sources",new { pname=Model.Name})
         </dd>
