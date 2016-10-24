@@ -56,6 +56,10 @@
     <Compile Include="Migrations\201610171350204_Initial.Designer.cs">
       <DependentUpon>201610171350204_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610241313102_fkchange.cs" />
+    <Compile Include="Migrations\201610241313102_fkchange.Designer.cs">
+      <DependentUpon>201610241313102_fkchange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelsDA.cs" />
     <Compile Include="Project.cs" />
@@ -69,6 +73,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610171350204_Initial.resx">
       <DependentUpon>201610171350204_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610241313102_fkchange.resx">
+      <DependentUpon>201610241313102_fkchange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

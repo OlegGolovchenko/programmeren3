@@ -29,6 +29,13 @@ namespace Models
             set;
         }
 
+        public int LangId
+        {
+            get;
+            set;
+        }
+
+        [ForeignKey("LangId")]
         public Language Lang
         {
             get;

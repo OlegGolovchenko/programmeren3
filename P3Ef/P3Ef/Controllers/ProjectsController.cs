@@ -40,6 +40,8 @@ namespace P3Ef.Controllers
         // GET: Projects/Create
         public ActionResult Create()
         {
+            ViewBag.langs = new SelectList(db.Languages, "Id", "Name",1);
+
             return View();
         }
 
@@ -48,8 +50,9 @@ namespace P3Ef.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name")] Project project)
+        public ActionResult Create([Bind(Include = "Id,Name,Lang")] Project project)
         {
+            project.Lang = db.Languages.Find(project.LangId);
             project.UId = User.Identity.GetUserId();
             if (ModelState.IsValid)
             {
