@@ -78,6 +78,7 @@ namespace P3Ef.Controllers
             {
                 return HttpNotFound();
             }
+            TempData["poname"] = project.Name;
             return View(project);
         }
 
@@ -92,6 +93,11 @@ namespace P3Ef.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(project).State = EntityState.Modified;
+                List<Source> tsrc = db.ListSources(TempData["poname"].ToString());
+                foreach(Source s in tsrc)
+                {
+                    s.PName = project.Name;
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
