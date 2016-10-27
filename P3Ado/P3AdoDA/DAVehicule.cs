@@ -21,7 +21,8 @@ namespace P3AdoDA
             using (SqlConnection conn = new SqlConnection(connectionstring))
             {
                 conn.Open();
-                SqlCommand command = new SqlCommand("Select * from Vehicule");
+                SqlCommand command = new SqlCommand("GetAllVehicules");
+                command.CommandType = System.Data.CommandType.StoredProcedure;
 
                 command.Connection = conn;
 
@@ -47,7 +48,10 @@ namespace P3AdoDA
             using (SqlConnection conn = new SqlConnection(connectionstring))
             {
                 conn.Open();
-                SqlCommand command = new SqlCommand($"Select * from Vehicule where Id = {id}");
+                SqlParameter par = new SqlParameter("@id", id);
+                SqlCommand command = new SqlCommand("GetVehiculeById");
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.Add(par);
                 command.Connection = conn;
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
